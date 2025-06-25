@@ -32,7 +32,7 @@ def create():
         content = request.form['content']
 
         if not title:
-            return 'Title is required!'
+            return render_template('create.html', error='Title is required!')
 
         conn = get_db_connection()
         conn.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
